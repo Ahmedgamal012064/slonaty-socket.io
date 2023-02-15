@@ -11,6 +11,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(cors());
 
+
 const server = require('http').createServer(app);
 const io = require('socket.io')(server, {
     cors: {
@@ -25,6 +26,10 @@ instrument(io, {
 
 server.listen(3000, () => {
     console.log('Server is running');
+});
+
+app.get('/', (req, res) => {
+    res.send('Hello world');
 });
 
 let selectlive = functions.query_mysql({
