@@ -56,7 +56,7 @@ io.on('connection', (socket) => {
                     if (data.status == true) {
                         make_order.then((data2) => {
                             if (data2.status == true) {
-                                io.emit('book_number', data2.book_number)
+                                io.emit('book_number', { branch_id: data2.branch_id, book_number: data2.book_number });
                                 socket.emit('make_order_response', {
                                     status: true,
                                     msg: "order created successfully",
