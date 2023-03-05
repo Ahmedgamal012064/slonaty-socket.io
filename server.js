@@ -14,8 +14,6 @@ app.use(cors());
 
 const server = require('http').createServer(app);
 const io = require('socket.io')(server, {
-    pingInterval: 10,
-    pingTimeout: 4000,
     cors: {
         origin: "*",
     }
