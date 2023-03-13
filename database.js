@@ -7,7 +7,8 @@ var connection = mysql.createConnection({
     host: '145.14.151.35',
     database: 'u864597826_eljoker',
     user: 'u864597826_eljoker',
-    password: 'Eljoker@2203'
+    password: 'Eljoker@2203',
+    multipleStatements: true
 });
 
 connection.connect(async function(error) {

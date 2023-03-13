@@ -119,16 +119,17 @@ query_mysql = async function(sqlQuery) {
         console.log("START");
         if (sqlQuery) {
             database.query(sqlQuery, function(error, result, fields) {
-                database.end(); // end connection
+                //console.log('Database Rsult : ' + result);
                 if (error) {
                     Telegram_message_bot(error.message + ' [ in Error query_mysql function]');
                     throw error;
                 } else {
+                    // database.destroy();
                     return resolve(result);
                 }
             });
         } else {
-            connection.end(); // end connection
+            database.end(); // end connection
             // code:  handle the case
         }
     });

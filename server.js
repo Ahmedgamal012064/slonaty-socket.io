@@ -87,7 +87,7 @@ io.on('connection', (socket) => {
         socket.on('increase_live_number', (body) => {
             var casher_id = body.casher_id;
             functions.query_mysql({
-                sql: 'UPDATE branches SET current_counter = current_counter + 1 WHERE id = ? ',
+                sql: 'UPDATE branches SET current_counter = current_counter + 1 WHERE id = ?',
                 timeout: 5000, // 40s
                 values: [body.branch_id]
             });
